@@ -8,6 +8,16 @@
 </head>
 <body>
   <script>
+    window.addEventListener('click', function() {
+      var getenvironment = [
+        "none", "default", "contact", "egypt", "checkerboard", "forest", "goaland", "yavapai", "goldmine", 
+        "threetowers", "poison", "arches", "tron", "japan", "dream", "volcano", "starry", "osiris"
+      ]
+      var random = Math.floor(Math.random() * getenvironment.length);
+      document.getElementById('enviro').setAttribute('environment', `preset:${getenvironment[random]}`) 
+      console.log(random);
+    })
+
     AFRAME.registerComponent("listener", {
       schema : {
         stepFactor : {
@@ -25,31 +35,35 @@
           document.getElementById('firsttwist').setAttribute("rotation", "0 0 0")
           document.getElementById('secondtwist').setAttribute("rotation", "0 0 0")
           document.getElementById('firstkatana').setAttribute("position", "2.5 1 9")
-          document.getElementById('firstkatana').setAttribute("dur", "80000")
+          document.getElementById('firstkatana').setAttribute("dur", "800000")
           document.getElementById('firstkatana').setAttribute("easing", "linear")
 
         }
+
         if (this.el.object3D.position.z < 11) {
           document.getElementById('thirdtwist').setAttribute("rotation", "0 0 0")
           document.getElementById('fourthtwist').setAttribute("rotation", "0 0 0")
           document.getElementById('secondkatana').setAttribute("position", "4.5 1 3")
-          document.getElementById('secondkatana').setAttribute("dur", "80000")
+          document.getElementById('secondkatana').setAttribute("dur", "800000")
           document.getElementById('secondkatana').setAttribute("easing", "linear")
         }
+
         if (this.el.object3D.position.z < 6) {
           document.getElementById('fifthtwist').setAttribute("rotation", "0 0 0")
           document.getElementById('sixtwist').setAttribute("rotation", "0 0 0")
           document.getElementById('thirdkatana').setAttribute("position", "2.5 1 -3")
-          document.getElementById('thirdkatana').setAttribute("dur", "80000")
+          document.getElementById('thirdkatana').setAttribute("dur", "800000")
           document.getElementById('thirdkatana').setAttribute("easing", "linear")
         }
+
         if (this.el.object3D.position.z < 1) {
           document.getElementById('seventwist').setAttribute("rotation", "0 0 0")
           document.getElementById('eighttwist').setAttribute("rotation", "0 0 0")
           document.getElementById('fourthkatana').setAttribute("position", "4.5 1 -9")
-          document.getElementById('fourthkatana').setAttribute("dur", "80000")
+          document.getElementById('fourthkatana').setAttribute("dur", "800000")
           document.getElementById('fourthkatana').setAttribute("easing", "linear")
         }
+
         if (this.el.object3D.position.z < -4) {
           document.getElementById('ninetwist').setAttribute("rotation", "0 0 0")
           document.getElementById('tentwist').setAttribute("rotation", "0 0 0")
@@ -57,9 +71,9 @@
       }
     });
   </script>
-  <a-scene>
+  <a-scene onclic>
     <a-camera listener="stepFactor:0.02" position="3 0.5 30" look-controls-enabled="false"></a-camera>
-    <a-entity environment="preset: japan; groundColor: #080808; groundColor2: #303030; skyColor: #080808; fog: 0.9; dressingColor: #303030"></a-entity>
+    <a-entity id="enviro" environment="preset: japan; groundColor: #080808; groundColor2: #303030; skyColor: #080808; fog: 0.9; dressingColor: #303030"></a-entity>
 
     <a-assets>
       <img id="japan" src="japan.png">
