@@ -46,7 +46,7 @@
       tick : function() {	
         // Constantly moving forward and put a limit to my camera and check if message disapeared
         if (timeleft < 0) {
-          if (this.el.object3D.position.z > -7) {
+          if (this.el.object3D.position.z > -5) {
             this.el.components.camera.camera.parent.position.add(this.el.components.camera.camera.getWorldDirection().multiplyScalar(this.data.stepFactor));
           }
         }
@@ -90,6 +90,7 @@
         }
       }
     });
+    document.querySelector('#fading-cube').emit('fade');
   </script>
 
   <a-scene onclic>
@@ -108,8 +109,8 @@
     <a-camera listener="stepFactor:0.03" position="3 0.5 30" look-controls-enabled="false"></a-camera>
     <a-entity id="enviro" environment="preset: japan; groundColor: #080808; groundColor2: #303030; skyColor: #080808; fog: 0.9; dressingColor: #303030"></a-entity>
 
-    <a-entity id="countdown" position="3.3 2.3 29"></a-entity>
-    <a-entity id="clicktoswitch" position="3.3 2.2 29"></a-entity>
+    <a-entity id="countdown" position="3.1 2.3 29"></a-entity>
+    <a-entity id="clicktoswitch" position="3.1 2.2 29"></a-entity>
 
     <a-box position="8 1 12" src="#japan" height="2" width="2"></a-box>
     <a-gltf-model id="firsttwist" position="8 2.8 12" src="#sensei" scale="0.02 0.02 0.02" rotation="0 270 0" shadow></a-gltf-model>
